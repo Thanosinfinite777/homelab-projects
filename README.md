@@ -7,7 +7,51 @@ This repo documents my IT lab projects as I work toward becoming a System Admini
 
 ## Projects
 - **Active Directory Domain Setup**  
-  Built a Windows Server 2022 domain controller, added DNS & DHCP, and joined Windows 10 clients.  
+  Built a Windows Server 2022 domain controller, added DNS & DHCP, and joined Windows 10 clients.
+  ## 🛠️ Active Directory Domain Setup
+
+  🔹 Lab Setup
+- **Host Machine**: Windows 11 Pro, 16 GB RAM, Intel i7-12700H  
+- **External Storage**: Crucial X10 1TB Portable SSD  
+- **Virtualization**: VirtualBox 7.x  
+
+ Virtual Machines
+- **DC01** – Windows Server 2022 (Domain Controller)  
+- **Win10-Client01** – Windows 10 Pro (domain-joined client)  
+
+
+
+ 🔹 What I’ve Built So Far
+- Installed **Windows Server 2022** on DC01  
+- Promoted server to **Domain Controller** for domain `lab.local`  
+- Configured **static IP addressing** (10.0.0.10 for DC, 10.0.0.101 for client)  
+- Installed and configured **DNS** (forwarders + internal records)  
+- Cleaned up DNS zone to fix resolution issues  
+- Added **DeptDocs shared folder** with NTFS + Share permissions  
+- Joined **Windows 10 client** to the domain  
+- Confirmed **AD user logon** (`lab\TestUser`) from client  
+- Enabled **Group Policy Management** for domain users  
+- Fixed **networking** with dual NICs (Internal Network for lab + NAT for Interne
+- Created a network share with ntfs permissions
+
+## 🔹 Troubleshooting Wins
+- Solved DNS forwarder problems (Google 8.8.8.8, Cloudflare 1.1.1.1)  
+- Cleaned up NAT adapter records polluting DNS zone  
+- Fixed issue where `\\dc01\DeptDocs` didn’t work by aligning DNS records  
+- Learned difference between A record vs CNAME for hostname resolution  
+
+What I Learned
+- How AD DS centralizes authentication and management
+- How DNS integrates with Active Directory for name resolution
+- How DHCP scopes automate client IP addressing
+- Troubleshooting common issues (DNS misconfig, DHCP scope errors, client join failures)
+- Hands-on use of Server Manager and Active Directory Users & Computers (ADUC)
+- Group Policy (GPO)  
+- File and Folder Permissions (NTFS + Share)  
+- Windows networking (Internal vs NAT adapters in VirtualBox)  
+- Troubleshooting DNS + SMB issues
+
+
 
 - **Group Policy Testing**  
   Created GPOs to manage BitLocker, enforce password policies, and control user environments.  
