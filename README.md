@@ -57,7 +57,80 @@ What I Learned
   Created GPOs to manage BitLocker, enforce password policies, and control user environments.  
 
 - **Microsoft 365 + Entra ID (Azure AD)**  
-  Experimented with hybrid join, Intune enrollment, and Microsoft 365 admin settings.  
+  Experimented with hybrid join, Intune enrollment, and Microsoft 365 admin settings.
+  Tenant & Intune
+
+Created a brand-new Microsoft Entra ID (Azure AD) tenant.
+
+Activated a Microsoft Intune Plan 1 Trial subscription (25 seats).
+
+Verified the subscription in the Microsoft 365 Admin Center (Billing → Your products).
+
+User Setup
+
+Created / used a test Azure AD user.
+
+Assigned an Intune license to that user in the Microsoft 365 Admin Center (Licenses & apps).
+
+MDM / Enrollment Configuration
+
+In Intune admin center → Devices → Enrollment → Windows enrollment → Automatic Enrollment:
+
+Set MDM user scope = All (so any licensed user’s device auto-enrolls).
+
+In Entra admin center → Devices → Device settings:
+
+Confirmed that users are allowed to join devices to Azure AD.
+
+Reset Secure Boot keys to allow Win11 to pass requirements.
+
+Windows 11 Virtual Machine
+
+Installed VirtualBox 7.x.
+
+Created a dedicated VM storage folder: D:\IT-Lab\VMs.
+
+Downloaded official Windows 11 ISO (5.15 GB) via Microsoft’s MCT/download page.
+
+Created new VM in VirtualBox with:
+
+Windows 11 Pro (64-bit)
+
+8 GB RAM (6144 MB)
+
+2 CPUs (you can safely bump to 4 since you have 20 logical cores)
+
+Chipset = ICH9
+
+EFI + Secure Boot enabled
+
+TPM 2.0 added
+
+Video Memory = 128 MB
+
+Graphics Controller = VBoxSVGA
+
+SATA Controller (AHCI): Port 0 = Win11-Intune.vdi (64 GB), Port 1 = Optical Drive → Windows11.iso
+
+Use Host I/O Cache = On
+
+Boot order: Optical → Hard Disk
+
+Windows 11 OOBE
+
+Completed installer and OOBE screens step by step:
+
+Set region, keyboard, skip second keyboard.
+
+Chose Set up for work or school.
+
+Signed in with Azure AD user (licensed).
+
+Approved Microsoft Authenticator MFA.
+
+Created a PIN that meets complexity requirements.
+
+VM successfully booted to desktop as an Entra ID joined device.  
 
 - **Splunk Home Lab**  
   Installed Splunk trial to collect and analyze logs from Windows and Linux test machines.  
