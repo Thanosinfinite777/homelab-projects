@@ -17,10 +17,8 @@ This repo documents my IT lab projects as I work toward becoming a System Admini
 
  Virtual Machines
 - **DC01** – Windows Server 2022 (Domain Controller)  
-- **Win10-Client01** – Windows 10 Pro (domain-joined client)  
-
-
-
+- **Win10-Client01** – Windows 10 Pro (domain-joined client)
+- 
  🔹 What I’ve Built So Far
 - Installed **Windows Server 2022** on DC01  
 - Promoted server to **Domain Controller** for domain `lab.local`  
@@ -59,6 +57,48 @@ What I Learned
 - **Microsoft 365 + Entra ID (Azure AD)**  
   Experimented with hybrid join, Intune enrollment, and Microsoft 365 admin settings.
   Tenant & Intune
+
+  Microsoft Intune & Entra ID Lab
+
+This project demonstrates end-to-end modern endpoint management and security using Microsoft Intune and Entra ID in a Windows 11 virtual lab. The goal was to simulate real enterprise scenarios: packaging and deploying apps, enforcing compliance, managing updates, and securing access with Conditional Access.
+
+🔹 Lab Highlights
+
+App Deployment → Packaged VLC Media Player with the Win32 Content Prep Tool, deployed via Intune, and validated with detection rules.
+
+Configuration Policies → Enforced Windows Hello PIN requirements (length, complexity, history).
+
+Update Management → Created a Pilot Update Ring deferring feature updates by 7 days, quality updates by 2 days.
+
+Endpoint Security → Configured Microsoft Defender Antivirus (real-time + cloud protection, scheduled scans) and Defender Firewall (enabled for all profiles).
+
+Conditional Access → Built a policy requiring devices to be marked compliant before accessing Microsoft 365 apps.
+
+Reporting & Monitoring → Tracked compliance, app deployment status, and update ring assignments in the Intune Admin Center.
+
+🔹 Challenges & Learning Process
+
+VirtualBox limitations → BitLocker was skipped since encryption can cause boot issues in VMs. Learned when to adapt lab design to the environment.
+
+Policy conflicts → Encountered PIN length conflicts between Endpoint Security and Configuration Profiles. Learned to consolidate settings and avoid overlap.
+
+App packaging issues → Needed to use .\IntuneWinAppUtil.exe correctly in Command Prompt, and confirm silent install commands for detection.
+
+Conditional Access setup → Had to disable Security Defaults in Entra to enable custom CA policies — discovered how defaults vs. CA policies differ.
+
+Sync delays → Learned Intune reporting isn’t instant; forced device syncs and waited for compliance/app install state updates.
+
+Each issue deepened understanding of how Intune and Entra ID behave in real-world environments.
+
+🔹 Next Steps
+
+Add BitLocker encryption testing outside VM environment.
+
+Package additional Win32/MSI apps (7-Zip, Notepad++).
+
+Expand Conditional Access with MFA and location-based rules.
+
+Explore automation with PowerShell + Graph API for bulk deployments.
 
 Created a brand-new Microsoft Entra ID (Azure AD) tenant.
 
@@ -132,8 +172,6 @@ Created a PIN that meets complexity requirements.
 
 VM successfully booted to desktop as an Entra ID joined device.  
 
-- **Splunk Home Lab**  
-  Installed Splunk trial to collect and analyze logs from Windows and Linux test machines.  
 
 ## Skills Practiced
 - Windows Server administration  
@@ -141,6 +179,3 @@ VM successfully booted to desktop as an Entra ID joined device.
 - Office 365 / Intune  
 - Ticketing systems (ServiceNow, Jira, Zendesk)  
 - Networking (DHCP, DNS, VPN, firewall rules)  
-
----
-Save the README → now your GitHub repo looks professional, even with just text.
