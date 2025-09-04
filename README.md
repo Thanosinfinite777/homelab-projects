@@ -90,6 +90,22 @@ Sync delays → Learned Intune reporting isn’t instant; forced device syncs an
 
 Each issue deepened understanding of how Intune and Entra ID behave in real-world environments.
 
+Troubleshooting & Ticketing Approach (ServiceNow Mindset)
+
+While working through this lab, I treated issues as if they were tickets coming from end users or system alerts. My approach:
+
+Identify & categorize the issue → e.g., “App failed to install” → categorize under Software Deployment.
+
+Gather evidence → Checked Intune logs, device sync status, and compliance reports before escalating.
+
+Apply fixes → Adjusted detection rules, corrected policy conflicts, retried syncs.
+
+Document resolution → Recorded root cause and fix steps (e.g., “Conflicting PIN policies; resolved by consolidating settings in Endpoint Security”).
+
+Close ticket with knowledge base update → Treating each fix as something reusable for future incidents.
+
+This reflects how I would approach real incidents in ServiceNow or another ITSM platform: structured, evidence-based, and documented.
+
 🔹 Next Steps
 
 Add BitLocker encryption testing outside VM environment.
