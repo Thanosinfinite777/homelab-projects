@@ -176,6 +176,5 @@ VM successfully booted to desktop as an Entra ID joined device.
 ## Skills Practiced
 - Windows Server administration  
 - Domain join / Group Policy  
-- Office 365 / Intune  
-- Ticketing systems (ServiceNow, Jira, Zendesk)  
+- Office 365 Admin / Intune /Entra ID    
 - Networking (DHCP, DNS, VPN, firewall rules)  
